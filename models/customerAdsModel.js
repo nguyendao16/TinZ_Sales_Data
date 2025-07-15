@@ -40,5 +40,13 @@ module.exports = {
        WHERE psid = $2`,
       [tag, psid]
     );
+  },
+  async updateStatus(psid, status) {
+    return pool.query(
+      `UPDATE sales_data
+         SET tinh_trang = $1
+       WHERE psid = $2`,
+      [status, psid]
+    );
   }
 };
